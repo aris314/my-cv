@@ -1,67 +1,82 @@
+---
+---
 <!DOCTYPE html>
 <html lang="el">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Βάιος Μάργαρης — Βιογραφικό</title>
+  <title>{{ site.data.cv.name | escape }} — Βιογραφικό</title>
+
   <style>
     body {
+      margin: 0;
+      padding: 20px;
       font-family: Arial, sans-serif;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
       line-height: 1.7;
       color: #263238;
-      background: #fafafa;
+      background: #f7f8fc;
     }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 25px;
+      background: white;
+      border-radius: 15px;
+    }
+
     h1 {
       color: #174b70;
       border-bottom: 2px solid #174b70;
       padding-bottom: 12px;
     }
+
     h2 {
       color: #174b70;
       margin-top: 30px;
     }
+
     li {
       margin-bottom: 10px;
     }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+
+      .container {
+        margin: 0 auto;
+        padding: 15px;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <main>
-    <h1>Βάιος Μάργαρης</h1>
-    <p>Μηχανικός Πληροφορικής — Πανεπιστήμιο Θεσσαλίας</p>
+  <main class="container">
+    <h1>{{ site.data.cv.name | escape }}</h1>
+    <p>{{ site.data.cv.headline | escape }}</p>
 
     <h2>Σπουδές</h2>
     <ul>
-      <li>Πτυχίο Μηχανικού Πληροφορικής, Πανεπιστήμιο Θεσσαλίας.</li>
-      <li>
-        Μεταπτυχιακές σπουδές σε εξέλιξη στο πρόγραμμα
-        «Συστήματα Κινητού και Διάχυτου Υπολογισμού»,
-        Ελληνικό Ανοικτό Πανεπιστήμιο.
-      </li>
+      {% for item in site.data.cv.education %}
+      <li>{{ item | escape }}</li>
+      {% endfor %}
     </ul>
 
     <h2>Εργασιακή εμπειρία</h2>
     <ul>
-      <li>
-        ΟΤΕ Α.Ε. — Γραφείο Χρηματοοικονομικής Υποστήριξης
-        ΤΗΛΕΠ Περιφέρειας Θεσσαλίας.
-      </li>
-      <li>Υπουργείο Δικαιοσύνης — Διοικητική υποστήριξη.</li>
-      <li>Κέντρο Κοινότητας Στυλίδας.</li>
+      {% for item in site.data.cv.experience %}
+      <li>{{ item | escape }}</li>
+      {% endfor %}
     </ul>
 
     <h2>Ενδιαφέροντα</h2>
     <ul>
-      <li>
-        Εφαρμογές συστημάτων κινητού και διάχυτου υπολογισμού
-        στη σεισμολογία.
-      </li>
-      <li>Λογισμικά αντιστροφής τανυστή σεισμικής ροπής.</li>
-      <li>Λογισμικά προειδοποίησης τσουνάμι.</li>
-      <li>Πολιτική.</li>
+      {% for item in site.data.cv.interests %}
+      <li>{{ item | escape }}</li>
+      {% endfor %}
     </ul>
   </main>
 </body>
