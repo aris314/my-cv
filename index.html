@@ -40,6 +40,19 @@
       margin-bottom: 10px;
     }
 
+    .pdf-button {
+      display: inline-block;
+      padding: 10px 18px;
+      background: #174b70;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+
+    .pdf-button:hover {
+      background: #103650;
+    }
+
     @media (max-width: 600px) {
       body {
         padding: 10px;
@@ -57,6 +70,14 @@
   <main class="container">
     <h1>{{ site.data.cv.name | escape }}</h1>
     <p>{{ site.data.cv.headline | escape }}</p>
+
+    <p>
+      <a class="pdf-button"
+         href="{{ '/assets/cv.pdf' | relative_url }}"
+         download>
+        Λήψη βιογραφικού σε PDF
+      </a>
+    </p>
 
     <h2>Σπουδές</h2>
     <ul>
